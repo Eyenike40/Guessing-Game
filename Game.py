@@ -57,7 +57,7 @@ while number_triesn < max_tries:
     except ValueError as err:
         print("\nPlease enter a valid number :", err)
 else:
-    print(f"\nYou have reached your maximum tries {max_tries}")
+    print(f"\nYou have reached your maximum tries of {max_tries}")
     print(f"The correct answer is {rand_number}\nGame Over!!!")
 
 
