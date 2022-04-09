@@ -13,25 +13,35 @@ def guessingGame(player_guessed_numb:int, tries_left: int, number_tries:int):
 
     Output
     ******
-    The game indicate if you guessed right or wrong
+    The game indicate if you guessed right or wrong.
+
+    Example
+    *******
+    Please guess a number between 0 to 100 : 56
+
+    >>>You guessed Right
+    >>>It took you 4 guesses
+    >>>The correct answer is 56
+
     """
  
     if player_guessed_numb == rand_number:
         print("\nYou guessed Right")
         print(f"It took you {number_tries} guesses")
+        print(f"The correct answer is {rand_number}")
     elif player_guessed_numb > rand_number:
-        print("\nYou guessed too high")
+        print("\nWrong : You guessed too high")
         print("Try again!!!")
         print(f"You have {tries_left} tries left")
     elif player_guessed_numb < rand_number:
-        print("\nYou guessed too low")
+        print("\nWrong: You guessed too low")
         print("Try again!!!")
         print(f"You have {tries_left} tries left")
 
 
 #Get guessed number from player
-max_tries = 10
-tries_leftn = 10
+max_tries = 6
+tries_leftn = max_tries
 number_triesn=0
 
 for i in range(max_tries):
@@ -43,7 +53,8 @@ for i in range(max_tries):
     if player_number == rand_number:
         break
 else:
-    print("\nYou have reached your maximum tries (10 tries)\nGame Over!!!")
+    print(f"\nYou have reached your maximum tries {max_tries}")
+    print(f"The correct answer is {rand_number}\nGame Over!!!")
 
 
 
