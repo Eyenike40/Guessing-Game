@@ -31,11 +31,11 @@ def guessingGame(player_guessed_numb:int, tries_left: int, number_tries:int):
         print(f"The correct answer is {rand_number}")
     elif player_guessed_numb > rand_number:
         print("\nWrong : You guessed too high")
-        print("Try again!!!")
+        if tries_left != 0 : print("Try again!!!")
         print(f"You have {tries_left} tries left")
     elif player_guessed_numb < rand_number:
         print("\nWrong: You guessed too low")
-        print("Try again!!!")
+        if tries_left != 0 : print("Try again!!!")
         print(f"You have {tries_left} tries left")
 
 
@@ -44,18 +44,20 @@ max_tries = 6
 tries_leftn = max_tries
 number_triesn=0
 
-for i in range(max_tries):
-    player_number = int(input("\nPlease guess a number between 0 to 100 : "))
-    tries_leftn = tries_leftn - 1
-    number_triesn = i+1
-    guessingGame(player_number,tries_leftn,number_triesn)
 
-    if player_number == rand_number:
-        break
+while number_triesn < max_tries:
+    try:
+        player_number = int(input("\nPlease guess a number between 0 to 100 : "))
+        tries_leftn = tries_leftn - 1
+        number_triesn = number_triesn + 1
+        guessingGame(player_number,tries_leftn,number_triesn)
+
+        if player_number == rand_number:
+            break
+    except ValueError as err:
+        print("\nPlease enter a valid number :", err)
 else:
     print(f"\nYou have reached your maximum tries {max_tries}")
     print(f"The correct answer is {rand_number}\nGame Over!!!")
-
-
 
 
